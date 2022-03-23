@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7bfe4b1-fb9b-49b9-9547-6bae57389317" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/udlpractices.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/practices/practice2/delete.ts" beforeDir="false" afterPath="$PROJECT_DIR$/practices/practice2/delete.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/practices/practice2/put.ts" beforeDir="false" afterPath="$PROJECT_DIR$/practices/practice2/put.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/practices/practice2/read.ts" beforeDir="false" afterPath="$PROJECT_DIR$/practices/practice2/read.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/samconfig.toml" beforeDir="false" afterPath="$PROJECT_DIR$/samconfig.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/template.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +33,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -72,7 +67,9 @@
       <workItem from="1648034753915" duration="3816000" />
       <workItem from="1648035256927" duration="203000" />
       <workItem from="1648035467740" duration="1238000" />
-      <workItem from="1648057920206" duration="2550000" />
+      <workItem from="1648057920206" duration="3324000" />
+      <workItem from="1648061915477" duration="18000" />
+      <workItem from="1648061937733" duration="67000" />
     </task>
     <servers />
   </component>
