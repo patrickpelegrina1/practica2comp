@@ -1,0 +1,168 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Practice 1
+Transform:
+  - AWS::Serverless-2016-10-31
+Globals:
+  Function:
+    Runtime: nodejs14.x
+    Timeout: 30
+    MemorySize: 1024
+    Environment:
+      Variables:
+        USERNAME: Jordi
+        NODE_OPTIONS: --enable-source-maps
+        AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
+
+Resources:
+  #################
+  ## Hello World ##
+  #################
+  HelloWorldLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-hello-world-lambda'
+      Handler: helloWorld.handler
+      CodeUri: dist/practice1
+      Role: !GetAtt LambdaExecutionRole.Arn
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-BasicLambdaExecutionRole'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                lambda.amazonaws.com
+            Action:
+              sts:AssumeRole
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+
+
+<<<<<<< HEAD
+  ######################
+  ## Mini activitat 1 ##
+  ######################
+=======
+  ################
+  ## practice 2 ##
+  ################
+>>>>>>> 83dacf8 (practice2 resolved)
+
+  Dynamodb:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: !Sub '${AWS::StackName}-dynamodb-table'
+      AttributeDefinitions:
+<<<<<<< HEAD
+        - AttributeName: id # Partition key
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+=======
+        - AttributeName: partitionKey # Partition key
+          AttributeType: S
+      KeySchema:
+        - AttributeName: partitionKey
+>>>>>>> 83dacf8 (practice2 resolved)
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> 83dacf8 (practice2 resolved)
+  LambdaWriteDynamodbRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-LambdaWriteDynamodbRole'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                lambda.amazonaws.com
+            Action:
+              sts:AssumeRole
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: !Sub '${AWS::StackName}-LambdaWriteDynamodbPolicy'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:PutItem
+<<<<<<< HEAD
+                Resource:
+                  - !GetAtt Dynamodb.Arn
+
+=======
+                  - dynamodb:DeleteItem
+                Resource:
+                  - !GetAtt Dynamodb.Arn
+
+  LambdaReadDynamodbRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub '${AWS::StackName}-LambdaReadDynamodbRole'
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                lambda.amazonaws.com
+            Action:
+              sts:AssumeRole
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: !Sub '${AWS::StackName}-LambdaReadDynamodbPolicy'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - dynamodb:GetItem
+                Resource:
+                  - !GetAtt Dynamodb.Arn
+
+
+
+>>>>>>> 83dacf8 (practice2 resolved)
+  PutLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-put-dynamodb-lambda'
+      Handler: put.handler
+      CodeUri: dist/practice2
+      Role: !GetAtt LambdaWriteDynamodbRole.Arn
+
+<<<<<<< HEAD
+=======
+  ReadLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-read-dynamodb-lambda'
+      Handler: read.handler
+      CodeUri: dist/practice2
+      Role: !GetAtt LambdaReadDynamodbRole.Arn
+
+  DeleteLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: !Sub '${AWS::StackName}-delete-dynamodb-lambda'
+      Handler: delete.handler
+      CodeUri: dist/practice2
+      Role: !GetAtt LambdaWriteDynamodbRole.Arn
+>>>>>>> 83dacf8 (practice2 resolved)
